@@ -12,6 +12,7 @@ const nhomSchema = new mongoose.Schema({
   codeNhomCha: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'nhom',
+    default:null
   },
   isNVL: {
     type: Boolean,

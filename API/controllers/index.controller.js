@@ -1,3 +1,4 @@
 module.exports = {
-    loaiController:require("./loai.controller")
+    loaiController:require("./loai.controller"),
+    nhomController:require("./nhom.controller")
 };

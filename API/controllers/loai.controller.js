@@ -106,7 +106,7 @@ module.exports.createList = async (req, res) => {
     // console.log(dsLoai);
     let countDuplicateCode = 0;
     for (const loai of dsLoai) {
-      if (checkExistCodeLoai(loai.codeLoai) == true) {
+      if (await checkExistCodeLoai(loai.codeLoai) == true) {
         countDuplicateCode++;
       } else {
         await indexModel.loai.create({
