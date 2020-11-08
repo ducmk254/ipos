@@ -15,11 +15,16 @@ module.exports.checkMonAnExistInNhom = async (req, res, next) => {
 
 module.exports.checkDuplicateCodeNhom = async (req, res, next) => {
   try {
-    const currentNhom = await indexModel.nhom.findOne({
-      codeNhom: req.body.codeNhom,
-    });
-    if (currentNhom) return res.status(400).json({err: 'CodeNhom exist'}); // 400: bad request
-    next();
+    if(req.body.hasOwnProperty("codeNhom")){
+      const currentNhom = await indexModel.nhom.findOne({
+        codeNhom: req.body.codeNhom,
+      });
+      if (currentNhom)
+        return res.status(400).json({err: 'CodeNhom exist'}); // 400: bad request
+      next();
+    }else{
+      return res.status(404).json({err:"Please input codeNhom"});
+    }
   } catch (error) {
     return res.status(500).json({err: 'Co Loi :' + error});
   }

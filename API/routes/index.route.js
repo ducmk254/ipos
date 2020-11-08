@@ -42,4 +42,18 @@ module.exports = (app) => {
       indexMiddleware.nhomMiddleware.checkMonAnExistInNhom,
       indexController.nhomController.removeNhom
     );
+
+  // Unit:
+  app
+    .route('/api/v0/units')
+    .get(indexController.unitController.getUnitList)
+    .post(
+      indexMiddleware.unitMiddleware.checkDuplicateCodeUnit,
+      indexController.unitController.addUnit
+    );
+  app
+    .route('/api/v0/unit/:unit_id')
+    .get(indexController.unitController.getUnit)
+    .post(indexController.unitController.changeUnit)
+    .delete(indexController.unitController.removeUnit);
 };

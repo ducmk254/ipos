@@ -15,12 +15,16 @@ module.exports.checkMonAnExistInLoai = async (req, res, next) => {
 
 module.exports.checkDuplicateCodeLoai = async (req, res, next) => {
   try {
-    const currentLoai = await indexModel.loai.findOne({
-      codeLoai: req.body.codeLoai,
-    });
-    if (currentLoai)
-      return res.status(400).json({err: 'CodeLoai exist'}); // 400: bad request
-    next();
+    if(req.body.hasOwnProperty("codeLoai")){
+      const currentLoai = await indexModel.loai.findOne({
+        codeLoai: req.body.codeLoai,
+      });
+      if (currentLoai)
+        return res.status(400).json({err: 'CodeLoai exist'}); // 400: bad request
+      next();
+    }else{
+      return res.status(404).json({err:"Please input codeLoai"});
+    }
   } catch (error) {
     return res.status(500).json({err: 'Co Loi :' + error});
   }

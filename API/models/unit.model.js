@@ -13,5 +13,12 @@ const unitSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  codeMonAn_Id: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'monan',
+      default: null,
+    },
+  ],
 });
 module.exports = mongoose.model('unit', unitSchema);
