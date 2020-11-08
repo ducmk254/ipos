@@ -21,10 +21,12 @@ const monanSchema = new mongoose.Schema({
   codeNhom_Id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'nhom',
+    required:true
   },
   codeLoai_Id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'loai',
+    required:true
   },
   unit_Id: {
     type: mongoose.Schema.Types.ObjectId,
@@ -37,7 +39,7 @@ const monanSchema = new mongoose.Schema({
   },
   endDate: {
     type: Date,
-    default: Date.now + 365,
+    default: Date.now(),
   },
   active: {
     type: Boolean,

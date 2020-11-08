@@ -1,5 +1,6 @@
 const indexController = require('../controllers/index.controller');
 const indexMiddleware = require('../middlewares/index.middleware');
+const indexValidate = require('../validates/index.validate');
 module.exports = (app) => {
   // LOai
   app
@@ -61,6 +62,7 @@ module.exports = (app) => {
     .route('/api/v0/monans')
     .get(indexController.monanController.getMonAnList)
     .post(
+      indexValidate.monanValidate.monanValidateInput,
       indexMiddleware.monanMiddleware.checkDuplicateCodeMonAn,
       indexController.monanController.addMonAn
     );
