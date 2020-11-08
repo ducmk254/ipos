@@ -1,5 +1,6 @@
 module.exports = {
-    loaiController:require("./loai.controller"),
-    nhomController:require("./nhom.controller"),
-    unitController: require("./unit.controller")
+  loaiController: require('./loai.controller'),
+  nhomController: require('./nhom.controller'),
+  unitController: require('./unit.controller'),
+  monanController: require('./monan.controller'),
 };

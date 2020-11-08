@@ -29,6 +29,7 @@ const monanSchema = new mongoose.Schema({
   unit_Id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'unit',
+    required: true,
   },
   startDate: {
     type: Date,
@@ -41,7 +42,7 @@ const monanSchema = new mongoose.Schema({
   active: {
     type: Boolean,
     required: true,
-  }
+  },
 });
 
 module.exports = mongoose.model('monan', monanSchema);

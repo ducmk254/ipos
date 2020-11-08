@@ -56,4 +56,17 @@ module.exports = (app) => {
     .get(indexController.unitController.getUnit)
     .post(indexController.unitController.changeUnit)
     .delete(indexController.unitController.removeUnit);
+
+  app
+    .route('/api/v0/monans')
+    .get(indexController.monanController.getMonAnList)
+    .post(
+      indexMiddleware.monanMiddleware.checkDuplicateCodeMonAn,
+      indexController.monanController.addMonAn
+    );
+  app
+    .route('/api/v0/monan/:monan_id')
+    .get(indexController.monanController.getMonAn)
+    .post(indexController.monanController.changeMonAn)
+    .delete(indexController.monanController.removeMonAn);
 };

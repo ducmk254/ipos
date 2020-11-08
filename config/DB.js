@@ -4,6 +4,7 @@ module.exports.connectDB = async (mongoose, hostname, dbport, dbname) => {
       .connect(`mongodb://${hostname}:${dbport}/${dbname}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        useFindAndModify: true,
       })
       .then(() => {
         console.log('          Connected to DB...');
