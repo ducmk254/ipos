@@ -6,4 +6,5 @@ module.exports = {
   unit: require('./unit.model'),
   customer: require('./customer.model'),
   order: require('./order.model'),
+  user: require('./user.model'),
 };

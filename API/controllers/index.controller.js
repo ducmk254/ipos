@@ -5,4 +5,5 @@ module.exports = {
   monanController: require('./monan.controller'),
   orderController: require('./order.controller'),
   customerController: require('./customer.coltroller'),
+  userController: require('./user.controller'),
 };
