@@ -1,17 +1,12 @@
-const {string} = require('@hapi/joi');
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
-  codeMonAn_Id: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'monan',
-    required: true,
-  }],
-  quantity: {
-    type: Number,
-    default: 1,
-    required: true,
-  },
+  codeMonAn_Id: [
+    {
+      monan_id: {type: mongoose.Schema.Types.ObjectId, ref: 'monan'},
+      quantity: {type: Number, default: 1, required: true},
+    },
+  ],
   thanhtien: {
     type: Number,
     default: 0,
@@ -30,10 +25,10 @@ const orderSchema = new mongoose.Schema({
     default: '',
   },
   status: {
-    type: string,
+    type: String,
     enum: ['open', 'close'],
     default: 'open',
-    required:true
+    required: true,
   },
 });
 module.exports = mongoose.model('order', orderSchema);

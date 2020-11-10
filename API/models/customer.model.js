@@ -10,6 +10,10 @@ const customerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  phone: {
+    type: String,
+    required: true,
+  },
   codeOrder_Id: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -18,4 +22,4 @@ const customerSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("customer",customerSchema);
+module.exports = mongoose.model('customer', customerSchema);

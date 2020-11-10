@@ -71,4 +71,22 @@ module.exports = (app) => {
     .get(indexController.monanController.getMonAn)
     .post(indexController.monanController.changeMonAn)
     .delete(indexController.monanController.removeMonAn);
+
+  app
+    .route('/api/v0/orders')
+    .get(indexController.orderController.getOrderList)
+    .post(indexController.orderController.addOrder);
+  app
+    .route('/api/v0/order/:order_id')
+    .get(indexController.orderController.getOrder)
+    .delete(indexController.orderController.removeOrder);
+
+  app
+    .route('/api/v0/customers')
+    .get(indexController.customerController.getCustomerList)
+    .post(indexController.customerController.addCustomer);
+  app
+    .route('/api/v0/customer/:customer_id')
+    .get(indexController.customerController.getCustomer)
+    .post(indexController.customerController.changeCus);
 };
