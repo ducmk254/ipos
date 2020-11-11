@@ -4,6 +4,7 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   dbconnect = require('./config/DB');
 require('dotenv').config();
+const cookieParser = require('cookie-parser');
 
 const PORT = process.env.PORT || 5000;
 //import route:
@@ -19,6 +20,7 @@ dbconnect.connectDB(
 // apply body-parser:
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser(process.env.SECRET));
 
 route(app);
 

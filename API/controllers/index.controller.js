@@ -6,4 +6,6 @@ module.exports = {
   orderController: require('./order.controller'),
   customerController: require('./customer.coltroller'),
   userController: require('./user.controller'),
+  loginAuthController: require('./loginAuth.controller'),
+  logoutController: require('./logOutAuth.controller'),
 };

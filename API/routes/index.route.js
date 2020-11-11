@@ -89,4 +89,13 @@ module.exports = (app) => {
     .route('/api/v0/customer/:customer_id')
     .get(indexController.customerController.getCustomer)
     .post(indexController.customerController.changeCus);
+
+  app
+    .route('/api/v0/login')
+    .post(indexController.loginAuthController.loginAuth);
+  app.route('/api/v0/logout').get(indexController.logoutController.logOutAuth);
+  app
+    .route('/api/v0/users')
+    .get(indexController.userController.getUserList)
+    .post(indexController.userController.addUser);
 };
