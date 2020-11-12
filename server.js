@@ -20,7 +20,7 @@ dbconnect.connectDB(
 // apply body-parser:
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cookieParser(process.env.SECRET));
+app.use(cookieParser(process.env.SECRET)); // for use signedCookie
 
 route(app);
 
